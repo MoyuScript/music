@@ -31,9 +31,10 @@ export default class extends React.Component<Props> {
       )
     }
     const { score, author } = this.props;
-    let pdfUrl = `/api/download?id=${score.key}&filename=score.pdf`;
-    let midiUrl = `/api/download?id=${score.key}&filename=midi.mid`;
-    let museUrl = `/api/download?id=${score.key}&filename=musescore.mscz`;
+    const baseURL = '/music';
+    let pdfUrl = `${baseURL}/api/download?id=${score.key}&filename=score.pdf`;
+    let midiUrl = `${baseURL}/api/download?id=${score.key}&filename=midi.mid`;
+    let museUrl = `${baseURL}/api/download?id=${score.key}&filename=musescore.mscz`;
     return (
       <React.Fragment>
         <Head>
