@@ -1,4 +1,4 @@
 module.exports = {
   basePath: '/music',
-  trailingSlash: false
+  trailingSlash: true
 }
