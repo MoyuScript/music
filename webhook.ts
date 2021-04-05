@@ -1,11 +1,14 @@
 import Koa from 'koa';
 import koaBody from 'koa-body';
+import childProcess from 'child_process';
 
 const app = new Koa();
 
 const SECRET = '069ece64193d5968c34b53acafc91a81';
 
-app.use(koaBody());
+app.use(koaBody({
+  parsedMethods: ['POST', 'GET', 'PUT', 'PATCH']
+}));
 
 app.use(async (ctx, next) => {
   if (ctx.method !== 'GET') {
@@ -36,7 +39,9 @@ app.use(async (ctx, next) => {
     return;
   }
 
-  
+  ctx.status = 202;
+  ctx.body = '接受处理。';
+  childProcess.spawn('git pull && docker-compose build && docker-compose up');
 });
 
 app.listen(5001, '127.0.0.1', undefined, () => {
