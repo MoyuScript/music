@@ -10,6 +10,7 @@ export default class extends React.Component {
               <h1>关于</h1>
               <p>这是是自己的一个音乐资源站_(:з」∠)_。</p>
               <p>主要因为在学 WEB 开发，所以就想自己写个。</p>
+              <p>没啥好说的了2333。</p>
             </div>
             <div className={style.tech}>
               <h1>技术栈</h1>
