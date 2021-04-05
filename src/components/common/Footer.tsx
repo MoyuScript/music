@@ -6,7 +6,7 @@ export default class extends React.Component {
     return (
         <footer className={style.footer}>
           <div className={style.content}>
-            <div id={style.about}>
+            <div id="about" className={style.about}>
               <h1>关于</h1>
               <p>这是是自己的一个音乐资源站_(:з」∠)_。</p>
               <p>主要因为在学 WEB 开发，所以就想自己写个。</p>
