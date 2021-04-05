@@ -28,6 +28,9 @@ async function procedure() {
   if (o.stderr) {
     console.error(o.stderr);
   }
+  console.log('停止现有服务')
+  o = await exec('docker-compose down');
+  console.log(o.stdout);
 
   console.log('启动服务');
   o = await exec('docker-compose up -d');
