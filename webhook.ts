@@ -19,7 +19,6 @@ async function procedure() {
   console.log(o.stdout);
   if (o.stderr) {
     console.error(o.stderr);
-    return;
   }
 
   console.log('构建镜像');
@@ -28,7 +27,6 @@ async function procedure() {
   console.log(o.stdout);
   if (o.stderr) {
     console.error(o.stderr);
-    return;
   }
 
   console.log('启动服务');
@@ -37,7 +35,6 @@ async function procedure() {
   console.log(o.stdout);
   if (o.stderr) {
     console.error(o.stderr);
-    return;
   }
 }
 
