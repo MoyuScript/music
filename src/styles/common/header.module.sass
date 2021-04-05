@@ -1,0 +1,59 @@
+.showBackground
+    background-color: rgb(255,130,131)
+  
+.header
+  position: absolute
+  width: 100%
+  z-index: 1
+  display: flex
+  justify-content: space-between
+  padding: 20px 100px
+  
+  @media screen and (max-width: 1000px)
+    padding: 20px 30px
+
+.links
+  text-align: right
+
+.openBtn
+  background: none
+  border: none
+  color: white
+  font-size: 20px
+  display: none
+  @media screen and (max-width: 666px)
+    display: inline-block
+
+.content
+  display: flex
+  align-items: center
+  @media screen and (max-width: 666px)
+    display: none
+    position: absolute
+    width: 100px
+    right: 0
+    &.show
+      display: flex
+  a
+    color: white
+    padding: 6px 15px
+    border-radius: 5px
+    border: 2px w hite solid
+    text-decoration: none
+    margin: 0 5px
+    transition: background-color 0.2s, color 0.2s
+    &:hover
+      background: white
+      color: rgb(255,130,131)
+    i
+      margin-right: 5px
+  @media screen and (max-width: 666px)
+    flex-direction: column
+    a
+      background-color: #cd55f9
+      margin-bottom: 2px
+
+.title a
+    color: white
+    text-decoration: none
+    font-size: 30px

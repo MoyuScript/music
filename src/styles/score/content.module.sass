@@ -1,0 +1,51 @@
+.body
+  min-height: 100vh
+  background-attachment: fixed
+  background-size: cover
+  background-position: center
+  padding: 130px 0 50px 0
+  @media screen and (max-width: 1000px)
+    padding: 0
+  .content
+    padding: 50px
+    min-height: inherit
+    background-color: rgba(255, 255, 255, 0.9)
+    max-width: 1000px
+    margin: 0 auto
+    border-radius: 30px
+    box-shadow: 0 0 20px #7a7a7a
+    @media screen and (max-width: 1000px)
+      padding: 130px 20px 20px 20px
+      border-radius: 0
+    article
+      h1
+        margin-top: 20px
+    .meta
+      margin-bottom: 16px
+      .title, .subtitle
+        text-align: center
+      .subtitle
+        color: gray
+        p
+          margin: 0
+      .author
+        text-align: right
+        a
+          display: inline-block
+          position: relative
+          background-color: #4bbaff
+          border: 1px solid #38a6e8
+          border-radius: 50px
+          overflow: hidden
+          padding: 2px
+          color: white
+          &:hover
+            text-decoration: none
+          .avatar
+            $height: 35px
+            height: $height
+            width: $height
+            border-radius: 100%
+          .name
+            vertical-align: middle
+            padding: 0 5px

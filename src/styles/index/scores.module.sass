@@ -1,0 +1,64 @@
+.scores
+  min-height: 100vh
+  background-color: #f8f8f8
+  padding: 50px 100px
+  @media screen and (max-width: 1000px)
+    padding: 50px 15px
+  .info
+    @media screen and (max-width: 1000px)
+      text-align: center
+    @media screen and (max-width: 600px)
+      h1
+        font-size: 30px
+  & > div
+    margin-bottom: 50px
+
+.items
+  display: block
+  
+.item
+  display: block
+  position: relative
+  margin: 20px
+  overflow: hidden
+
+  background: #fbbcbc
+
+  background-size: cover
+  border-radius: 1em
+  transition: transform 0.2s, box-shadow 0.2s
+  color: white
+  padding: 1em
+
+  &:hover
+    color: white
+    text-decoration: none
+    transform: scale(1.01, 1.01)
+    .itemBgSlice
+      width: 100%
+  
+  .itemBg
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    filter: brightness(70%) blur(3px)
+    
+  .itemBgSlice
+    height: 100%
+    width: 0
+    background-color:#79ffc0
+    opacity: 0.9
+    transition: width 0.5s
+
+  .itemInfo
+    position: relative
+    z-index: 1
+
+    .itemTitle
+      font-size: 2em
+      font-weight: bold
+      @media (max-width: 768px)
+        font-size: 1.5em
+  

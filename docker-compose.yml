@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  music:
+    build: .
+    ports:
+      - '5000:3000'
+    volumes:
+      - './scores:/app/scores'

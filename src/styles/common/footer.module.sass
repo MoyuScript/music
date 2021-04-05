@@ -1,0 +1,45 @@
+.footer
+  min-height: 300px
+  background-color: #ff8282
+  color: white
+  a
+    color: yellow
+    &:hover
+      text-decoration: none
+      color: #e9e900
+  .footerBottom
+    text-align: center
+    padding: 5px 20px
+    background-color: #f96464
+    font-size: 14px
+    p
+      margin: 0
+  .content
+    padding: 50px 100px
+    display: flex
+    justify-content: space-between
+    @media screen and (max-width: 1200px)
+      padding: 50px 30px
+    & > div
+      margin: 0 20px
+    h1
+      font-size: 30px
+    .tech
+      p
+        margin: 0
+      div
+        margin-bottom: 5px
+    #about
+      max-width: 300px
+      @media screen and (max-width: 1000px)
+        max-width: 100%
+    .copyright
+      text-align: right
+      @media screen and (max-width: 1000px)
+        text-align: center
+    @media screen and (max-width: 1000px)
+      flex-direction: column
+      padding: 20px 10px
+      & > div
+        text-align: center
+        margin-bottom: 20px

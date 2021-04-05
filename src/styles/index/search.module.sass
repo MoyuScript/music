@@ -1,0 +1,69 @@
+.search
+  position: relative
+  width: 100%
+  height: 500px
+  background: url("../../../public/static/首页背景.jpg")
+  color: white
+  padding: 0 30px
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+
+.info
+  font-size: 60px
+  margin-bottom: 40px
+  @media screen and (max-width: 1200px)
+    font-size: 40px
+    text-align: center
+  @media screen and (max-width: 666px)
+    font-size: 30px
+    .new-line
+      display: block
+  *
+    vertical-align: middle
+
+.searchArea
+  width: 100%
+  max-width: 500px
+  position: relative
+  input
+    padding: 13px 50px
+    width: 100%
+    border: none
+    border-radius: 30px
+    text-align: center
+    transition: box-shadow 0.5s
+    @media screen and (max-width: 800px)
+      padding: 9px 50px
+    &::placeholder
+      color: #8f8f8f
+    &::selection
+      background-color: #ff7b79
+      color: white
+    &:focus
+      box-shadow: 0 0 10px gray
+
+  .icon
+    color: #ff5454
+    position: absolute
+    z-index: 1
+    top: 50%
+    transform: translateY(-50%)
+    @keyframes icon-rotate
+      from
+        transform: translateY(-50%) rotateZ(-20deg)
+      to
+        transform: translateY(-50%) rotateZ(20deg)
+    animation-name: icon-rotate
+    animation-iteration-count: infinite
+    animation-duration: 1s
+    animation-timing-function: ease-in-out
+
+    &.left
+      left: 15px
+      animation-direction: alternate
+      
+    &.right
+      right: 15px
+      animation-direction: alternate-reverse

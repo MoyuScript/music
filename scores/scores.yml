@@ -1,0 +1,123 @@
+# 乐谱信息
+# midi文件命名为： midi.mid
+# pdf乐谱文件命名为： score.pdf
+# MuseScore文件命名为： musescore.mscz
+
+# 实际地址： https://passkou.com/scores/<key>
+-
+  # 文件夹名，使用下划线命名法
+  key: 'welcome_to_fluffy_store'
+  # 展示名称
+  name: '茸茸便利店MENU BGM'
+  # 原曲名
+  realName: 'Welcome to Fluffy Store'
+  # 作者信息
+  author: 'Passkou'
+  # 页面背景，建议使用16:9尺寸
+  image: 'https://pic.imgdb.cn/item/6013df703ffa7d37b3604733.jpg'
+  # 描述
+  desc: 'Galgame《茸茸便利店》MENU BGM扒谱'
+  # b站链接（BV号），为 ~ 时代表没有
+  bilibili: 'BV1ny4y1C7NV'
+  # 是否有 PDF 乐谱文件
+  hasPDF: true
+  # 是否有 MIDI 文件
+  hasMIDI: true
+  # 是否有 MuseScore 源文件
+  hasMUSESCORE: true
+
+-
+  key: 'candy_a_mine'
+  name: 'Candy a Mine'
+  realName: 'Candy a Mine'
+  author: 'Passkou'
+  image: 'https://pic.imgdb.cn/item/6013dfb03ffa7d37b3605dd2.png'
+  desc: 'Galgame《糖调》OP 全乐器扒谱'
+  bilibili: 'BV1uv411q7Mv'
+  hasMIDI: true
+  
+-
+  key: 'nyakoris_rabbit_doll'
+  name: '喵可莉的兔玩偶TE-BGM'
+  realName: 'Nyakoris rabbit doll True End BGM'
+  author: '-落忆-'
+  image: 'https://s1.ax1x.com/2020/10/12/0RkpQA.jpg'
+  desc: 'RPG游戏《喵可莉的兔玩偶》真结局-BGM'
+  bilibili: 'BV1P7411t7RG'
+  hasPDF: true
+  hasMIDI: true
+  hasMUSESCORE: true
+  
+-
+  key: 'hidamari_michi_to_renchon_recorder'
+  name: '陽だまり道とれんちょん（竖笛版）'
+  realName: '陽だまり道とれんちょん'
+  author: 'Passkou'
+  image: 'https://pic.imgdb.cn/item/6013e0053ffa7d37b3607e8d.jpg'
+  desc: 'TV动画《悠哉日常大王》第一季OST'
+  bilibili: 'BV1FA411E7Rc'
+  hasPDF: true
+  hasMUSESCORE: true
+  
+-
+  key: 'candy_a_mine_piano'
+  name: 'Candy a Mine（Piano ver.）'
+  realName: 'Candy a Mine'
+  author: 'Passkou'
+  image: 'https://pic.imgdb.cn/item/6013dfb03ffa7d37b3605dd2.png'
+  desc: 'Galgame《しゅがてん！》OP'
+  bilibili: 'BV1ra4y1s7Yi'
+  hasMIDI: true
+  
+-
+  key: 'stand_by_me_2'
+  name: '【弦乐钢琴】虹 - 「哆啦A梦：伴我同行2」主题曲（short ver.）'
+  realName: '虹 - 菅田将暉'
+  author: 'Passkou'
+  image: 'https://pic.imgdb.cn/item/6013e0333ffa7d37b3608ecd.jpg'
+  desc: '「哆啦A梦：伴我同行2」主题曲'
+  bilibili: 'BV1aD4y1X7pY'
+  hasMIDI: true
+
+-
+  key: 'hidamari_no_kaori'
+  name: '陽だまりの香り（Soprano Recorder）'
+  realName: '陽だまりの香り'
+  author: 'Passkou'
+  image: 'https://pic.imgdb.cn/item/6013df213ffa7d37b360239a.jpg'
+  desc: 'TV动画《Nekopara》ED高音竖笛版'
+  bilibili: 'BV1154y1p7gg'
+  hasPDF: true
+  hasMUSESCORE: true
+
+-
+  key: 'hokejyo_bgm_1'
+  name: '保健室のセンセーとシャボン玉中毒の助手BGM 1'
+  realName: '保健室のセンセーとシャボン玉中毒の助手BGM 1'
+  author: '-落忆-'
+  image: 'https://s3.ax1x.com/2021/02/09/ydRImR.png'
+  desc: 'Galgame《保健室のセンセーとシャボン玉中毒の助手》的BGM'
+  bilibili: 'BV1iX4y1K7Ss'
+  hasPDF: true
+  hasMUSESCORE: true
+ 
+-
+  key: 'calendula'
+  name: 'カレンデュラ_piano_ver (Fox Hime Zero BGM)'
+  realName: 'calendula'
+  author: '-落忆-'
+  image: 'https://s3.ax1x.com/2021/02/09/ydTBdJ.jpg'
+  desc: 'Galgame《Fox Hime Zero》的BGM'
+  bilibili: 'BV1FT4y1N728'
+  hasPDF: true
+  hasMUSESCORE: true
+ 
+-
+  key: 'starlight_of_aeons'
+  name: '亿万年的星光 OST'
+  realName: '亿万年的星光 OST'
+  author: '-落忆-'
+  image: 'https://s3.ax1x.com/2021/02/09/ydRyT0.png'
+  desc: 'Galgame《亿万年的星光》的BGM'
+  bilibili: 'BV1sK4y1p7Yx'
+  hasPDF: true
