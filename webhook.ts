@@ -31,7 +31,7 @@ app.use(async (ctx, next) => {
 
   ctx.status = 202;
   ctx.body = '接受处理。';
-  childProcess.spawn('git pull && docker-compose build && docker-compose up');
+  childProcess.spawn('git pull && docker-compose build && docker-compose up -d');
 });
 
 app.listen(5001, '127.0.0.1', undefined, () => {
