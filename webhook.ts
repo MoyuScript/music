@@ -29,16 +29,6 @@ app.use(async (ctx, next) => {
     return;
   }
 
-  const data = ctx.request.body;
-
-  console.log(JSON.stringify(data, undefined, 2));
-
-  if (data.ref !== 'refs/head/main') {
-    ctx.status = 200;
-    ctx.body = '非 main 分支，未修改。';
-    return;
-  }
-
   ctx.status = 202;
   ctx.body = '接受处理。';
   childProcess.spawn('git pull && docker-compose build && docker-compose up');
