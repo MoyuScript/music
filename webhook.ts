@@ -80,10 +80,17 @@ app.use(async (ctx, next) => {
   }
 
   const data = ctx.request.body;
+  console.log(data);
 
   // 检查 Ref
   if (data.ref !== 'refs/heads/main') {
     ctx.body = '非 main 分支，未触发';
+    return;
+  }
+
+  // 检查 commits 是否存在
+  if (!data.commits) {
+    ctx.body = '无 commits，未触发';
     return;
   }
 
