@@ -14,31 +14,32 @@ app.use(koaBody({
   parsedMethods: ['POST']
 }));
 
-async function procedure() {
+async function procedure(build: boolean) {
   console.log('拉取代码');
   let o = await exec('git pull');
   console.log(o.stdout);
   if (o.stderr) {
     console.error(o.stderr);
   }
+  if (build) {
+    console.log('构建镜像');
+    o = await exec('docker-compose build');
 
-  console.log('构建镜像');
-  o = await exec('docker-compose build');
+    console.log(o.stdout);
+    if (o.stderr) {
+      console.error(o.stderr);
+    }
+    console.log('停止现有服务')
+    o = await exec('docker-compose down');
+    console.log(o.stdout);
 
-  console.log(o.stdout);
-  if (o.stderr) {
-    console.error(o.stderr);
-  }
-  console.log('停止现有服务')
-  o = await exec('docker-compose down');
-  console.log(o.stdout);
+    console.log('启动服务');
+    o = await exec('docker-compose up -d');
 
-  console.log('启动服务');
-  o = await exec('docker-compose up -d');
-
-  console.log(o.stdout);
-  if (o.stderr) {
-    console.error(o.stderr);
+    console.log(o.stdout);
+    if (o.stderr) {
+      console.error(o.stderr);
+    }
   }
 }
 
@@ -116,15 +117,13 @@ app.use(async (ctx, next) => {
     }
   }
 
+  procedure(shouldBuild);
   if (!shouldBuild) {
-    ctx.body = '文件变动不符合条件，未触发。';
-    return;
+    ctx.body = '源文件未变动。仅拉取代码。';
+  } else {
+    ctx.body = '源文件变动，提交构建请求。';
   }
-
   ctx.status = 202;
-  ctx.body = '接受处理。';
-  console.log('构建中...')
-  procedure();
 });
 
 app.listen(5001, '127.0.0.1', undefined, () => {
