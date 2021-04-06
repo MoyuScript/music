@@ -30,13 +30,13 @@ export default class extends React.Component {
             <div className={style.copyright}>
               <p>
                 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target={'_blank'}>
-                  <img alt="知识共享许可协议" src="./static/license.png" />
+                  <img alt="知识共享许可协议" src="/music/static/license.png" />
                 </a>
               </p>
               <p>本站所有作品采用<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_black">知识共享署名-相同方式共享 4.0 国际许可协议</a>进行许可。</p>
               <p>若要进行商业用途请考虑原曲版权。我们只提供自制乐谱和MIDI文件。</p>
               <p>部分图标资源来自<a href="https://www.flaticon.com" target="_blank">Flaticon</a>，均为免费资源。</p>
-              <p>©2020 <a href={'https://passkou.com'} target="_blank">passkou.com</a></p>
+              <p>©2020 <a href={'https://www.passkou.com'} target="_blank">passkou.com</a></p>
             </div>
           </div>
           <div className={style.footerBottom}>
