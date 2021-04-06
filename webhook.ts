@@ -101,7 +101,7 @@ app.use(async (ctx, next) => {
   const pattern = /^(scores|design)\/.*/i;
   for (const commit of data.commits) {
     // 检查 added
-    if (commit.added) {
+    if (!shouldBuild && commit.added) {
       shouldBuild = commit.added.some((v: string) => !pattern.test(v));
     }
 
