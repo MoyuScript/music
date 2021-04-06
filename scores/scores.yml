@@ -41,7 +41,7 @@
   name: '喵可莉的兔玩偶TE-BGM'
   realName: 'Nyakoris rabbit doll True End BGM'
   author: '-落忆-'
-  image: 'https://s1.ax1x.com/2020/10/12/0RkpQA.jpg'
+  image: 'https://img.imgdb.cn/item/606c60278322e6675cdf1de6.jpg'
   desc: 'RPG游戏《喵可莉的兔玩偶》真结局-BGM'
   bilibili: 'BV1P7411t7RG'
   hasPDF: true
@@ -95,7 +95,7 @@
   name: '保健室のセンセーとシャボン玉中毒の助手BGM 1'
   realName: '保健室のセンセーとシャボン玉中毒の助手BGM 1'
   author: '-落忆-'
-  image: 'https://s3.ax1x.com/2021/02/09/ydRImR.png'
+  image: 'https://img.imgdb.cn/item/606c60278322e6675cdf1de1.jpg'
   desc: 'Galgame《保健室のセンセーとシャボン玉中毒の助手》的BGM'
   bilibili: 'BV1iX4y1K7Ss'
   hasPDF: true
@@ -106,7 +106,7 @@
   name: 'カレンデュラ_piano_ver (Fox Hime Zero BGM)'
   realName: 'calendula'
   author: '-落忆-'
-  image: 'https://s3.ax1x.com/2021/02/09/ydTBdJ.jpg'
+  image: 'https://img.imgdb.cn/item/606c60278322e6675cdf1dd9.jpg'
   desc: 'Galgame《Fox Hime Zero》的BGM'
   bilibili: 'BV1FT4y1N728'
   hasPDF: true
@@ -117,7 +117,29 @@
   name: '亿万年的星光 OST'
   realName: '亿万年的星光 OST'
   author: '-落忆-'
-  image: 'https://s3.ax1x.com/2021/02/09/ydRyT0.png'
+  image: 'https://img.imgdb.cn/item/606c60278322e6675cdf1df1.jpg'
   desc: 'Galgame《亿万年的星光》的BGM'
   bilibili: 'BV1sK4y1p7Yx'
   hasPDF: true
+ 
+-
+  key: 'mystery_lover'
+  name: '恋爱绮谭-TitleBGM'
+  realName: '恋爱绮谭'
+  author: '-落忆-'
+  image: 'https://img.imgdb.cn/item/606c664b8322e6675ce61ccc.jpg'
+  desc: 'Galgame《恋爱绮谭》Title BGM'
+  bilibili: 'BV1yy4y147Hq'
+  hasPDF: true
+  hasMUSESCORE: true
+ 
+-
+  key: 'remember_dreams'
+  name: 'Remember_Dreams'
+  realName: 'Remember_Dreams'
+  author: '-落忆-'
+  image: 'https://img.imgdb.cn/item/606c67948322e6675ce7853c.jpg'
+  desc: 'Galgame《枕边少女》的BGM'
+  bilibili: '~'
+  hasPDF: true
+  hasMUSESCORE: true
