@@ -102,29 +102,29 @@ app.use(async (ctx, next) => {
   for (const commit of data.commits) {
     // 检查 added
     if (commit.added) {
-      shouldBuild = commit.added.every((v: string) => !pattern.test(v));
+      shouldBuild = commit.added.some((v: string) => !pattern.test(v));
     }
 
     // 检查 removed
     if (!shouldBuild && commit.removed) {
-      shouldBuild = commit.removed.every((v: string) => !pattern.test(v));
+      shouldBuild = commit.removed.some((v: string) => !pattern.test(v));
     }
 
     // 检查 modified
     if (!shouldBuild && commit.modified) {
-      shouldBuild = commit.modified.every((v: string) => !pattern.test(v));
+      shouldBuild = commit.modified.some((v: string) => !pattern.test(v));
     }
   }
 
   if (!shouldBuild) {
-    ctx.send('文件变动不符合条件，未触发。');
+    ctx.body = '文件变动不符合条件，未触发。';
     return;
   }
 
   ctx.status = 202;
   ctx.body = '接受处理。';
   console.log('构建中...')
-  // procedure();
+  procedure();
 });
 
 app.listen(5001, '127.0.0.1', undefined, () => {
