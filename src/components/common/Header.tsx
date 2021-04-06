@@ -21,7 +21,7 @@ export default class extends React.Component<HeaderProps, State> {
     return (
       <header className={this.props.showBackground ? `${style.header} ${style.showBackground}` : style.header}>
         <div className={style.title}>
-          <a href={'/music'}>自制MIDI/乐谱</a>
+          <a href={'/music'}>自制 MIDI/乐谱</a>
         </div>
         <div className={style.links}>
           <button className={`fas fa-ellipsis-h ${style.openBtn}`} onClick={this.toggleMenu}></button>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import { GetServerSideProps, NextPageContext } from 'next';
+import { GetServerSideProps } from 'next';
 import { getAuthorsInfo, getScoresInfo } from '../score';
 import { Author, Score } from '../types/config';
 
@@ -59,7 +59,6 @@ export default class extends React.Component<Props, State> {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const authors = await getAuthorsInfo();
   const scores = await getScoresInfo();
-
   if (!(authors && scores)) {
     const props: Props = {
       error: '服务器出现了错误',
@@ -70,10 +69,11 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       props
     }
   }
+
   const props: Props = {
     error: null,
     authors,
-    scores
+    scores: scores.reverse()
   }
   return {
     props
