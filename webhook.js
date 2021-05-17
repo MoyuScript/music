@@ -14,7 +14,7 @@ app.use(koaBody({
   parsedMethods: ['POST']
 }));
 
-async function procedure(build: boolean) {
+async function procedure(build) {
   console.log('拉取代码');
   let o = await exec('git pull');
   console.log(o.stdout);
@@ -103,17 +103,17 @@ app.use(async (ctx, next) => {
   for (const commit of data.commits) {
     // 检查 added
     if (!shouldBuild && commit.added) {
-      shouldBuild = commit.added.some((v: string) => !pattern.test(v));
+      shouldBuild = commit.added.some((v) => !pattern.test(v));
     }
 
     // 检查 removed
     if (!shouldBuild && commit.removed) {
-      shouldBuild = commit.removed.some((v: string) => !pattern.test(v));
+      shouldBuild = commit.removed.some((v) => !pattern.test(v));
     }
 
     // 检查 modified
     if (!shouldBuild && commit.modified) {
-      shouldBuild = commit.modified.some((v: string) => !pattern.test(v));
+      shouldBuild = commit.modified.some((v) => !pattern.test(v));
     }
   }
 
