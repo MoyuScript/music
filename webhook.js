@@ -1,8 +1,8 @@
-import Koa from 'koa';
-import koaBody from 'koa-body';
-import childProcess from 'child_process';
-import { promisify } from 'util';
-import { createHmac } from 'crypto';
+const Koa = require('koa')
+const koaBody = require('koa-body')
+const childProcess = require('child_process');
+const { promisify } = require('util');
+const { createHmac } = require('crypto');
 
 const app = new Koa();
 
