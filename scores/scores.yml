@@ -143,3 +143,15 @@
   bilibili: ~
   hasPDF: true
   hasMUSESCORE: true
+
+-
+  key: 'hidamari_michi_to_renchon_piano'
+  name: '陽だまり道とれんちょん（Piano ver.）'
+  realName: '陽だまり道とれんちょん（Piano ver.'
+  author: 'Passkou'
+  image: 'https://pic.imgdb.cn/item/6013e0053ffa7d37b3607e8d.jpg'
+  desc: '动画《悠哉日常大王》第一集 OST'
+  bilibili: BV1xg411G7Nt
+  hasPDF: true
+  hasMUSESCORE: true
+  hasMIDI: true
