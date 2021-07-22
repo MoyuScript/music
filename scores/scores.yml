@@ -167,9 +167,9 @@
   hasPDF: true
 
 -
-  key: 'love's_oracle'
-  name: 'Love's Oracle'
-  realName: 'Love's Oracle'
+  key: "loves_oracle"
+  name: "Love's Oracle"
+  realName: "Love's Oracle"
   author: '-落忆-'
   image: 'https://img.imgdb.cn/item/606c60278322e6675cdf1de1.jpg'
   desc: 'Galgame《保健室のセンセーとシャボン玉中毒の助手》的OP 钢琴改编'

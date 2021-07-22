@@ -49,32 +49,31 @@ app.use(async (ctx, next) => {
     return;
   }
   // 检查 UA
-  if (ctx.get('user-agent') !== 'git-oschina-hook') {
+  if (!ctx.get('user-agent').includes('GitHub-Hookshot')) {
     ctx.status = 403;
     return;
   }
 
   // 检查 Secret
-  const token = ctx.get('x-gitee-token');
-  const ts = ctx.get('x-gitee-timestamp');
+  const token = ctx.get('x-hub-signature');
 
-  if (!(token && ts)) {
-    ctx.status = 403;
+  if (!token) {
+    ctx.status = 401;
     return;
   }
 
   const hmac = createHmac('SHA256', SECRET);
-  hmac.update(`${ts}\n${SECRET}`);
-  const sign = encodeURI(hmac.digest('base64'));
+  hmac.update(Buffer.from(JSON.stringify(ctx.body), 'utf-8'));
+  const sign = encodeURI(hmac.digest('hex'));
 
-  if (sign !== token) {
+  if (`sha256=${sign}` !== token) {
     ctx.status = 403;
     return;
   }
 
   // 检查 Push Hook
-  const eventName = ctx.get('x-gitee-event');
-  if (eventName !== 'Push Hook') {
+  const eventName = ctx.get('x-github.event');
+  if (eventName !== 'push') {
     ctx.status = 200;
     ctx.body = '非 Push Event，未触发';
     return;
