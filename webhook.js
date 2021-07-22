@@ -72,7 +72,7 @@ app.use(async (ctx, next) => {
   }
 
   // 检查 Push Hook
-  const eventName = ctx.get('x-github.event');
+  const eventName = ctx.get('x-github-event');
   if (eventName !== 'push') {
     ctx.status = 200;
     ctx.body = '非 Push Event，未触发';
