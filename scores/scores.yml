@@ -155,3 +155,33 @@
   hasPDF: true
   hasMUSESCORE: true
   hasMIDI: true
+
+-
+  key: 'melancholy_love'
+  name: '濡雪的少女'
+  realName: '濡雪的少女'
+  author: '-落忆-'
+  image: 'https://pic.imgdb.cn/item/60f97c315132923bf8e2b16c.jpg'
+  desc: '游戏《千面》的BGM'
+  bilibili: BV1wU4y1H7vY
+  hasPDF: true
+
+-
+  key: 'love's_oracle'
+  name: 'Love's Oracle'
+  realName: 'Love's Oracle'
+  author: '-落忆-'
+  image: 'https://img.imgdb.cn/item/606c60278322e6675cdf1de1.jpg'
+  desc: 'Galgame《保健室のセンセーとシャボン玉中毒の助手》的OP 钢琴改编'
+  bilibili: BV1Z64y1X73u
+  hasPDF: true
+
+-
+  key: 'epiphyllum'
+  name: '昙花Title BGM'
+  realName: '昙花Title BGM'
+  author: '-落忆-'
+  image: 'https://pic.imgdb.cn/item/60f97c315132923bf8e2b183.jpg'
+  desc: 'Galgame《昙花》的BGM'
+  bilibili: BV1Gv411E7oJ
+  hasMIDI: true
