@@ -55,7 +55,7 @@ app.use(async (ctx, next) => {
   }
 
   // 检查 Secret
-  const token = ctx.get('x-hub-signature');
+  const token = ctx.get('x-hub-signature-256');
 
   if (!token) {
     ctx.status = 401;
@@ -63,7 +63,7 @@ app.use(async (ctx, next) => {
   }
 
   const hmac = createHmac('SHA256', SECRET);
-  hmac.update(Buffer.from(JSON.stringify(ctx.body), 'utf-8'));
+  hmac.update(Buffer.from(JSON.stringify(ctx.request.body), 'utf-8'));
   const sign = encodeURI(hmac.digest('hex'));
 
   if (`sha256=${sign}` !== token) {
