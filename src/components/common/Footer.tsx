@@ -35,7 +35,7 @@ export default class extends React.Component {
               </p>
               <p>本站所有作品采用<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_black">知识共享署名-相同方式共享 4.0 国际许可协议</a>进行许可。</p>
               <p>若要进行商业用途请考虑原曲版权。我们只提供自制乐谱和 MIDI 文件。</p>
-              <p>©2020 <a href={'https://www.passkou.com'} target="_blank">passkou.com</a></p>
+              <p>©2020-2021 <a href={'https://www.moyu.moe/'} target="_blank">moyu.moe</a></p>
             </div>
           </div>
         </footer>
