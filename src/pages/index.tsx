@@ -44,7 +44,7 @@ export default class extends React.Component<Props, State> {
         <Head>
           <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
           <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet"/>
-          <title>喵帕斯小窝乐谱站</title>
+          <title>摸鱼乐谱站</title>
         </Head>
         <Header showBackground={false}/>
         <Search updateItems={this.updateItems} items={this.props.scores} count={this.props.scores.length}/>
