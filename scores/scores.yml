@@ -185,3 +185,14 @@
   desc: 'Galgame《昙花》的BGM'
   bilibili: BV1Gv411E7oJ
   hasMIDI: true
+
+-
+  key: 'candy_a_mine_recorder'
+  name: 'Candy a Mine（Recorder Ber.）'
+  realName: 'Candy a Mine'
+  author: '摸鱼Script'
+  image: 'https://pic.imgdb.cn/item/6013dfb03ffa7d37b3605dd2.png'
+  desc: 'Galgame《しゅがてん！》OP'
+  bilibili: 'BV1TV411v7J4'
+  hasMUSESCORE: true
+  hasPDF: true
