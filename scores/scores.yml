@@ -196,3 +196,13 @@
   bilibili: 'BV1TV411v7J4'
   hasMUSESCORE: true
   hasPDF: true
+  
+-
+  key: 'dear_moments_piano'
+  name: 'Dear Moments（Piano Ver.）'
+  realName: 'Dear Moments'
+  author: '摸鱼Script'
+  image: 'https://pic.imgdb.cn/item/61149a505132923bf8430597.png'
+  desc: 'Galgame《ATRI》ED Piano ver.'
+  bilibili: 'BV1BP4y1W7LK'
+  hasMIDI: true
