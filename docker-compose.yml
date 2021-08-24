@@ -7,3 +7,4 @@ services:
       - '5000:3000'
     volumes:
       - './scores:/app/scores'
+    restart: on-faliure
