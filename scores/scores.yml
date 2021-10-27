@@ -206,3 +206,15 @@
   desc: 'Galgame《ATRI》ED Piano ver.'
   bilibili: 'BV1BP4y1W7LK'
   hasMIDI: true
+
+-
+  key: 'shinainaru_anohibihe'
+  name: '親愛なるあの日々へ'
+  realName: '親愛なるあの日々へ'
+  author: '摸鱼Script'
+  image: 'https://pic.imgdb.cn/item/61149a505132923bf8430597.png'
+  desc: 'GALGAME「ATRI」OST'
+  bilibili: 'BV1iq4y1G7vD'
+  hasPDF: true
+  hasMIDI: true
+  hasMUSESCORE: true
