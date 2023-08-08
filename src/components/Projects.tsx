@@ -74,6 +74,7 @@ const Projects: React.FC<ProjectsProps> = () => {
                                         <div className="relative w-full h-32 sm:h-24 sm:w-24 overflow-hidden bg-gray-200 flex justify-center items-center group-hover:bg-sky-400 transition-colors">
                                             {meta.cover ? (
                                                 <img
+                                                    loading='lazy'
                                                     alt="cover"
                                                     src={meta.cover}
                                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform"
