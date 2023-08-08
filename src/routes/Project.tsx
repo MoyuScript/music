@@ -21,8 +21,8 @@ export interface ProjectProps {}
 
 const Project: React.FC<ProjectProps> = () => {
     const params = useParams();
-    const { id } = params;
-    const project = projectMeta.projects.find((project) => project.id === id);
+    const { id, authorId } = params;
+    const project = projectMeta.projects.find((project) => project.id === id && project.authorId === authorId);
 
     useTitle(
         project ? `${project.meta.name} - ${__APP_NAME__}` : `404 - Not Found - ${__APP_NAME__}`
