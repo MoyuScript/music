@@ -82,7 +82,7 @@ const Projects: React.FC<ProjectsProps> = () => {
                                                 <i className="fa-solid fa-music text-gray-400 group-hover:text-white text-4xl transition-colors" />
                                             )}
                                         </div>
-                                        <div className="ml-4 py-2 sm:py-0">
+                                        <div className="sm:ml-4 p-4 sm:p-0 w-full sm:w-auto">
                                             <h2 className="font-bold sm:text-lg flex items-center">
                                                 <span>
                                                     {meta.name}
