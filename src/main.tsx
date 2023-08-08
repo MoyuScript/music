@@ -16,7 +16,7 @@ const routers = createHashRouter([
         element: <Index />
       },
       {
-        path: 'projects/:id',
+        path: 'projects/:authorId/:id',
         element: <Project />
       },
       {

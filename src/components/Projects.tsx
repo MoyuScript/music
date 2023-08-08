@@ -62,14 +62,14 @@ const Projects: React.FC<ProjectsProps> = () => {
                         const meta = project.meta;
                         const author = projectMeta.authors.find(
                             (author) => author.id === project.authorId
-                        );
+                        )!;
                         const isNew = dayjs().diff(
                             dayjs(meta.ctime),
                             'day'
                         ) <= 7;
                         return (
                             <li key={project.id}>
-                                <Link to={`/projects/${project.id}`}>
+                                <Link to={`/projects/${author.id}/${project.id}`}>
                                     <Card className="flex overflow-hidden group relative items-center flex-col sm:flex-row">
                                         <div className="relative w-full h-32 sm:h-24 sm:w-24 overflow-hidden bg-gray-200 flex justify-center items-center group-hover:bg-sky-400 transition-colors">
                                             {meta.cover ? (
