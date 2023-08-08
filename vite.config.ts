@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import vitePluginProjectMeta from './plugins/vitePluginProjectMeta'
 
-const base = '/MoyuScript/music/';
+const base = '/music/';
 // https://vitejs.dev/config/
 export default defineConfig({
   base,
