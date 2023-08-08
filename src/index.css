@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  @apply relative h-full overflow-auto text-gray-600;
+}
+
+html {
+  @apply bg-cover bg-no-repeat bg-center
+}
+
+body {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+}
