@@ -14,13 +14,17 @@ const CheckItem: React.FC<{
 }> = ({ checked, children, onClick }) => {
     return (
         <li
-            onClick={onClick}
             className={clsx(
-                'flex items-center rounded-xl border-[1px] px-2 py-1 transition-colors cursor-pointer mb-4',
+                'relative flex items-center rounded-xl border-[1px] px-2 py-1 transition-colors cursor-pointer mb-4',
                 checked && 'bg-sky-500 text-white'
             )}
         >
             {children}
+            <input
+                onChange={onClick}
+                type="radio"
+                checked={checked}
+                className="absolute opacity-0 w-full h-full top-0 left-0" />
         </li>
     );
 };

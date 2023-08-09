@@ -75,11 +75,11 @@ const Project: React.FC<ProjectProps> = () => {
                             const ext = baseName.split('.').pop();
                             return (
                                 <li key={filePath}>
-                                    <Card className="overflow-hidden group">
+                                    <Card className="overflow-hidden">
                                         <a
                                             download={baseName}
                                             href={filePath}
-                                            className="relative flex items-center h-14 sm:h-20"
+                                            className="relative flex group items-center h-14 sm:h-20"
                                         >
                                             <span
                                                 className={clsx(
