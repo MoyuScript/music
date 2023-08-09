@@ -10,6 +10,7 @@ import clsx from 'clsx';
 import Markdown from 'markdown-to-jsx';
 import useHtmlBackgroundImage from '../hooks/useHtmlBackgroundImage';
 import fileExtColorMap from '../constants/fileExtColorMap';
+import { isMobile } from '../constants/env';
 
 export interface ProjectProps {}
 
@@ -113,7 +114,13 @@ const Project: React.FC<ProjectProps> = () => {
                             <iframe
                                 src={`https://afdian.net/leaflet?slug=${author.afdianId}`}
                                 scrolling='no'
-                                className='w-full min700:w-[640px] h-[210px] overflow-hidden p-0 translate-x-[8px]'
+                                frameBorder="0"
+                                className={
+                                    clsx(
+                                        'w-full min700:w-[640px] h-[210px] p-0',
+                                        !isMobile() && 'translate-x-[6px]'
+                                    )
+                                }
                             ></iframe>
                         </div>
                     </Section>
