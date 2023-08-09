@@ -2,6 +2,7 @@
 export default {
   content: [
     "./src/**/*.tsx",
+    "./src/**/*.ts",
     "./src/**/*.css",
   ],
   theme: {

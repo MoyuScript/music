@@ -9,13 +9,7 @@ import Card from '../components/Card';
 import clsx from 'clsx';
 import Markdown from 'markdown-to-jsx';
 import useHtmlBackgroundImage from '../hooks/useHtmlBackgroundImage';
-
-const extBgColorMap: Record<string, string> = {
-    pdf: 'bg-red-400',
-    mid: 'bg-blue-400',
-    mscz: 'bg-green-400',
-    $default: 'bg-gray-400',
-};
+import fileExtColorMap from '../constants/fileExtColorMap';
 
 export interface ProjectProps {}
 
@@ -90,10 +84,10 @@ const Project: React.FC<ProjectProps> = () => {
                                             <span
                                                 className={clsx(
                                                     'relative shrink-0 h-full w-20 sm:w-28 flex justify-center items-center text-white font-bold sm:text-2xl',
-                                                    extBgColorMap[
+                                                    fileExtColorMap[
                                                         ext ?? '$default'
                                                     ] ??
-                                                        extBgColorMap[
+                                                        fileExtColorMap[
                                                             '$default'
                                                         ]
                                                 )}

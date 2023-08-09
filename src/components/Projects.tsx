@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import projectMeta from '../constants/projectMeta';
 import Card from './Card';
 import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
 import clsx from 'clsx';
+import Tag from './Tag';
+import fileExtColorMap from '../constants/fileExtColorMap';
 
 const CheckItem: React.FC<{
     checked: boolean;
@@ -78,13 +80,37 @@ const Projects: React.FC<ProjectsProps> = () => {
                         const isNew = meta.ctime
                             ? dayjs().diff(dayjs(meta.ctime), 'day') <= 7
                             : false;
+
+                        const exts = new Set(
+                            project.files
+                                .map((filePath) => {
+                                    return filePath.split('.').pop()!;
+                                })
+                                .filter(Boolean)
+                        );
+                        const tags: ReactNode[] = [...exts.values()].map(
+                            (ext) => {
+                                return (
+                                    <Tag
+                                        key={ext}
+                                        className={
+                                            fileExtColorMap[ext] ||
+                                            'bg-gray-400'
+                                        }
+                                    >
+                                        {ext.toUpperCase()}
+                                    </Tag>
+                                );
+                            }
+                        );
+
                         return (
                             <li key={project.id}>
                                 <Link
                                     to={`/projects/${author.id}/${project.id}`}
                                 >
                                     <Card className="flex overflow-hidden group relative items-center flex-col sm:flex-row">
-                                        <div className="relative w-full h-32 sm:h-24 sm:w-24 overflow-hidden bg-gray-200 flex justify-center items-center group-hover:bg-sky-400 transition-colors">
+                                        <div className="relative w-full h-32 sm:h-24 sm:w-24 overflow-hidden bg-gray-200 flex justify-center items-center group-hover:bg-sky-400 transition-colors shrink-0">
                                             {meta.cover ? (
                                                 <img
                                                     loading="lazy"
@@ -96,16 +122,22 @@ const Projects: React.FC<ProjectsProps> = () => {
                                                 <i className="fa-solid fa-music text-gray-400 group-hover:text-white text-4xl transition-colors" />
                                             )}
                                         </div>
-                                        <div className="sm:ml-4 p-4 sm:p-0 w-full sm:w-auto">
-                                            <h2 className="font-bold sm:text-lg flex items-center">
+                                        <div className="sm:ml-4 p-4 sm:p-0 w-full sm:w-auto grow">
+                                            <h2 className="font-bold sm:text-lg flex pr-4 justify-between items-center">
                                                 <span>
-                                                    {meta.name || project.id}
-                                                </span>
-                                                {isNew && (
-                                                    <span className=" text-white bg-green-500 text-xs p-1 rounded-full ml-2">
-                                                        NEW
+                                                    <span>
+                                                        {meta.name ||
+                                                            project.id}
                                                     </span>
-                                                )}
+                                                    {isNew && (
+                                                        <Tag className="bg-green-500">
+                                                            NEW
+                                                        </Tag>
+                                                    )}
+                                                </span>
+                                                <span className='hidden sm:block space-x-1 ml-2'>
+                                                    {tags}
+                                                </span>
                                             </h2>
                                             <p className="text-xs mt-2 text-gray-400 flex items-center">
                                                 <img
@@ -116,6 +148,9 @@ const Projects: React.FC<ProjectsProps> = () => {
                                                 <span className="ml-1">
                                                     {author?.name}
                                                 </span>
+                                            </p>
+                                            <p className='space-x-1 mt-2 text-right sm:hidden'>
+                                                {tags}
                                             </p>
                                         </div>
                                     </Card>
