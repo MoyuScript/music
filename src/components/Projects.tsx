@@ -30,8 +30,8 @@ const CheckItem: React.FC<{
                 {children}
                 <span
                     className={clsx(
-                        'bg-[rgba(255,255,255,0.3)] text-xs rounded-full px-[0.25rem] py-[0.1rem] min-w-[1.5rem] ml-1 text-center',
-                        !checked && 'bg-[rgba(0,0,0,0.07)]'
+                        'text-xs rounded-full px-[0.25rem] py-[0.1rem] min-w-[1.5rem] ml-1 text-center',
+                        checked ? 'bg-[rgba(255,255,255,0.3)]' : 'bg-[rgba(0,0,0,0.07)]'
                     )}
                 >
                     {count}
