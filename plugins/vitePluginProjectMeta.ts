@@ -25,7 +25,7 @@ export default function vitePluginProjectMeta(): PluginOption {
             if (id === virtualModuleId) {
                 const p = path.posix.join(publicDir, 'projects');
                 const projectFiles = (await globby(p)).map((p) =>
-                    p.replace(`${publicDir}/projects/`, '')
+                    p.replace(`${publicDir}/projects/`, '').toLowerCase()
                 );
 
                 const authors: IAuthor[] = [];
@@ -55,13 +55,13 @@ export default function vitePluginProjectMeta(): PluginOption {
                             `${publicDir}/projects/${path}`,
                             'utf8'
                         );
-                        const readmePath = `${publicDir}/projects/${authorId}/${id}/README.md`;
+                        const readmePath = `${publicDir}/projects/${authorId}/${id}/readme.md`;
                         const files = projectFiles
                             .filter(
                                 (p) =>
                                     p.startsWith(`${authorId}/${id}/`) &&
                                     !p.endsWith('meta.json') &&
-                                    !p.endsWith('README.md')
+                                    !p.endsWith('readme.md')
                             )
                             .map((p) => `${base}projects/${p}`);
                         projects.push({
