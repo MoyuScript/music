@@ -14,8 +14,15 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      var isDebug = location.host !== 'moyuscript.github.io';
+      var options;
 
-      gtag('config', 'G-EY2CN4MED9');
+      if (isDebug) {
+        options = {
+          debug_mode: true,
+        }
+      }
+      gtag('config', 'G-EY2CN4MED9', options);
     </script>
   </head>
   <body>
