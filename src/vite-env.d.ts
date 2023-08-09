@@ -8,3 +8,4 @@ declare module 'virtual:project-meta' {
 declare const __APP_NAME__: string;
 declare const __BASE__: string;
 declare const __PROJECT_DIR__: string;
+declare function gtag(...args: unknown[]): void;
