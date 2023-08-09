@@ -6,7 +6,11 @@ export default {
     "./src/**/*.css",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        min700: "700px"
+      }
+    },
   },
   plugins: [],
 }

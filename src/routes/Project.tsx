@@ -58,9 +58,9 @@ const Project: React.FC<ProjectProps> = () => {
                 )}
                 {meta.bvid && (
                     <Section title="视频预览">
-                        <Card className='relative max-w-[40rem] aspect-video flex mx-auto overflow-hidden'>
+                        <Card className="relative max-w-[40rem] aspect-video flex mx-auto overflow-hidden">
                             <iframe
-                                className='w-full h-full'
+                                className="w-full h-full"
                                 src={`//player.bilibili.com/player.html?bvid=${meta.bvid}`}
                             />
                         </Card>
@@ -107,6 +107,17 @@ const Project: React.FC<ProjectProps> = () => {
                         })}
                     </ul>
                 </Section>
+                {author?.afdianId && (
+                    <Section title="⚡电我⚡">
+                        <div className='flex justify-center'>
+                            <iframe
+                                src={`https://afdian.net/leaflet?slug=${author.afdianId}`}
+                                scrolling='no'
+                                className='w-full min700:w-[640px] h-[210px] overflow-hidden p-0 translate-x-[8px]'
+                            ></iframe>
+                        </div>
+                    </Section>
+                )}
             </div>
         </div>
     );

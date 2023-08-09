@@ -4,6 +4,7 @@ interface IAuthor {
     url: string
     avatar: string
     bio: string
+    afdianId?: string
 }
 
 export default IAuthor;
