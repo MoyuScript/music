@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react';
 import projectMeta from '../constants/projectMeta';
 import Card from './Card';
 import { Link } from 'react-router-dom';
-import dayjs from 'dayjs';
 import clsx from 'clsx';
 import Tag from './Tag';
 import fileExtColorMap from '../constants/fileExtColorMap';
@@ -10,8 +9,9 @@ import fileExtColorMap from '../constants/fileExtColorMap';
 const CheckItem: React.FC<{
     checked: boolean;
     children: React.ReactNode;
+    count?: number;
     onClick: () => void;
-}> = ({ checked, children, onClick }) => {
+}> = ({ checked, children, count = 0, onClick }) => {
     return (
         <li
             className={clsx(
@@ -20,11 +20,20 @@ const CheckItem: React.FC<{
             )}
         >
             {children}
+            <span
+                className={clsx(
+                    'bg-[rgba(255,255,255,0.3)] text-xs rounded-full px-[0.25rem] py-[0.1rem] min-w-[1.5rem] ml-1 text-center',
+                    !checked && 'bg-[rgba(0,0,0,0.05)]'
+                )}
+            >
+                {count}
+            </span>
             <input
                 onChange={onClick}
                 type="radio"
                 checked={checked}
-                className="absolute opacity-0 w-full h-full top-0 left-0" />
+                className="absolute opacity-0 w-full h-full top-0 left-0"
+            />
         </li>
     );
 };
@@ -39,6 +48,7 @@ const Projects: React.FC<ProjectsProps> = () => {
         <div className="">
             <ul className="flex space-x-2 flex-wrap">
                 <CheckItem
+                    count={projectMeta.projects.length}
                     checked={currentAuthorId === null}
                     onClick={() => setCurrentAuthorId(null)}
                 >
@@ -46,6 +56,11 @@ const Projects: React.FC<ProjectsProps> = () => {
                 </CheckItem>
                 {projectMeta.authors.map((author) => (
                     <CheckItem
+                        count={
+                            projectMeta.projects.filter(
+                                (project) => project.authorId === author.id
+                            ).length
+                        }
                         onClick={() => setCurrentAuthorId(author.id)}
                         key={author.name}
                         checked={currentAuthorId === author.id}
@@ -66,24 +81,14 @@ const Projects: React.FC<ProjectsProps> = () => {
                             currentAuthorId === null ||
                             project.authorId === currentAuthorId
                     )
-                    .sort((a, b) => {
-                        if (!a.meta.ctime || !b.meta.ctime) {
-                            return 0;
-                        }
-
-                        return (
-                            dayjs(b.meta.ctime).unix() -
-                            dayjs(a.meta.ctime).unix()
-                        );
+                    .sort(() => {
+                        return Math.random() - 0.5;
                     })
                     .map((project) => {
                         const meta = project.meta;
                         const author = projectMeta.authors.find(
                             (author) => author.id === project.authorId
                         )!;
-                        const isNew = meta.ctime
-                            ? dayjs().diff(dayjs(meta.ctime), 'day') <= 7
-                            : false;
 
                         const exts = new Set(
                             project.files
@@ -133,13 +138,8 @@ const Projects: React.FC<ProjectsProps> = () => {
                                                         {meta.name ||
                                                             project.id}
                                                     </span>
-                                                    {isNew && (
-                                                        <Tag className="bg-green-500">
-                                                            NEW
-                                                        </Tag>
-                                                    )}
                                                 </span>
-                                                <span className='hidden sm:block space-x-1 ml-2'>
+                                                <span className="hidden sm:block space-x-1 ml-2">
                                                     {tags}
                                                 </span>
                                             </h2>
@@ -153,7 +153,7 @@ const Projects: React.FC<ProjectsProps> = () => {
                                                     {author?.name}
                                                 </span>
                                             </p>
-                                            <p className='space-x-1 mt-2 text-right sm:hidden'>
+                                            <p className="space-x-1 mt-2 text-right sm:hidden">
                                                 {tags}
                                             </p>
                                         </div>

@@ -38,9 +38,6 @@ const Project: React.FC<ProjectProps> = () => {
     return (
         <div>
             <h1 className="mt-4 text-center text-3xl font-bold">{name}</h1>
-            {meta.ctime && (
-                <p className="text-center mt-4 text-gray-400">{meta.ctime}</p>
-            )}
             <div className="mt-8">
                 {author && (
                     <Section title="作者介绍">
