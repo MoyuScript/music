@@ -3,10 +3,13 @@ import { useTitle } from 'ahooks';
 import Section from '../components/Section';
 import Authors from '../components/Authors';
 import Projects from '../components/Projects';
+import { useParams } from 'react-router';
 
 export interface IndexProps {}
 
 const Index: React.FC<IndexProps> = () => {
+    const params = useParams();
+    const { authorId = null } = params;
     useTitle(__APP_NAME__)
 
     return (
@@ -15,7 +18,7 @@ const Index: React.FC<IndexProps> = () => {
                 <Authors />
             </Section>
             <Section title="乐谱列表">
-                <Projects />
+                <Projects currentAuthorId={authorId} />
             </Section>
         </div>
     );

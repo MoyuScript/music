@@ -1,17 +1,11 @@
-import React, { useEffect } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
-import Header from '../components/Header';
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 export interface RootProps {}
 
 const Root: React.FC<RootProps> = () => {
-    const location = useLocation();
-
-    useEffect(() => {
-        document.getElementById('root')!.scrollTo(0, 0);
-    }, [location.pathname])
-
     return (
         <div className='relative min-h-full'>
             <Header />

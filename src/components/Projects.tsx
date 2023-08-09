@@ -1,56 +1,58 @@
-import React, { ReactNode } from 'react';
-import projectMeta from '../constants/projectMeta';
-import Card from './Card';
-import { Link } from 'react-router-dom';
 import clsx from 'clsx';
-import Tag from './Tag';
+import React, { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 import fileExtColorMap from '../constants/fileExtColorMap';
+import projectMeta from '../constants/projectMeta';
+import IAuthor from '../types/IAuthor';
+import Card from './Card';
+import Tag from './Tag';
 
 const CheckItem: React.FC<{
-    checked: boolean;
+    author: IAuthor | null;
+    currentAuthorId: string | null;
     children: React.ReactNode;
     count?: number;
-    onClick: () => void;
-}> = ({ checked, children, count = 0, onClick }) => {
+}> = ({ children, count = 0, author, currentAuthorId }) => {
+    const checked =
+        (author === null && currentAuthorId === null) ||
+        (author !== null && currentAuthorId === author.id);
     return (
         <li
             className={clsx(
-                'relative flex items-center rounded-xl border-[1px] px-2 py-1 transition-colors cursor-pointer mb-4',
+                'relative  rounded-xl border-[1px] px-2 py-1 transition-colors cursor-pointer mb-4',
                 checked && 'bg-sky-500 text-white'
             )}
         >
-            {children}
-            <span
-                className={clsx(
-                    'bg-[rgba(255,255,255,0.3)] text-xs rounded-full px-[0.25rem] py-[0.1rem] min-w-[1.5rem] ml-1 text-center',
-                    !checked && 'bg-[rgba(0,0,0,0.05)]'
-                )}
+            <Link
+                className="flex items-center"
+                to={author === null ? '/' : `/projects/${author.id}`}
             >
-                {count}
-            </span>
-            <input
-                onChange={onClick}
-                type="radio"
-                checked={checked}
-                className="absolute opacity-0 w-full h-full top-0 left-0"
-            />
+                {children}
+                <span
+                    className={clsx(
+                        'bg-[rgba(255,255,255,0.3)] text-xs rounded-full px-[0.25rem] py-[0.1rem] min-w-[1.5rem] ml-1 text-center',
+                        !checked && 'bg-[rgba(0,0,0,0.07)]'
+                    )}
+                >
+                    {count}
+                </span>
+            </Link>
         </li>
     );
 };
 
-export interface ProjectsProps {}
+export interface ProjectsProps {
+    currentAuthorId: string | null;
+}
 
-const Projects: React.FC<ProjectsProps> = () => {
-    const [currentAuthorId, setCurrentAuthorId] = React.useState<string | null>(
-        null
-    );
+const Projects: React.FC<ProjectsProps> = ({ currentAuthorId }) => {
     return (
         <div className="">
             <ul className="flex space-x-2 flex-wrap">
                 <CheckItem
+                    author={null}
                     count={projectMeta.projects.length}
-                    checked={currentAuthorId === null}
-                    onClick={() => setCurrentAuthorId(null)}
+                    currentAuthorId={currentAuthorId || null}
                 >
                     全部
                 </CheckItem>
@@ -61,9 +63,9 @@ const Projects: React.FC<ProjectsProps> = () => {
                                 (project) => project.authorId === author.id
                             ).length
                         }
-                        onClick={() => setCurrentAuthorId(author.id)}
                         key={author.name}
-                        checked={currentAuthorId === author.id}
+                        author={author}
+                        currentAuthorId={currentAuthorId || null}
                     >
                         <img
                             alt="author avatar"
