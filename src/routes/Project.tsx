@@ -117,7 +117,7 @@ const Project: React.FC<ProjectProps> = () => {
                                 frameBorder="0"
                                 className={
                                     clsx(
-                                        'w-full min700:w-[640px] h-[210px] p-0',
+                                        'w-full min700:w-[640px] h-[210px] p-0 shadow-xl rounded-xl',
                                         !isMobile() && 'translate-x-[6px]'
                                     )
                                 }
