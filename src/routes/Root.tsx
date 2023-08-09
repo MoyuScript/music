@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import { useUpdateEffect } from 'ahooks';
 
 export interface RootProps {}
 
 const Root: React.FC<RootProps> = () => {
     const location = useLocation();
 
-    useEffect(() => {
+    useUpdateEffect(() => {
         gtag(
             'event',
             'page_view',
