@@ -30,9 +30,14 @@ const Projects: React.FC<ProjectsProps> = () => {
         null
     );
     return (
-        <div className=''>
+        <div className="">
             <ul className="flex space-x-2 flex-wrap">
-                <CheckItem checked={currentAuthorId === null} onClick={() => setCurrentAuthorId(null)}>全部</CheckItem>
+                <CheckItem
+                    checked={currentAuthorId === null}
+                    onClick={() => setCurrentAuthorId(null)}
+                >
+                    全部
+                </CheckItem>
                 {projectMeta.authors.map((author) => (
                     <CheckItem
                         onClick={() => setCurrentAuthorId(author.id)}
@@ -40,7 +45,7 @@ const Projects: React.FC<ProjectsProps> = () => {
                         checked={currentAuthorId === author.id}
                     >
                         <img
-                            alt='author avatar'
+                            alt="author avatar"
                             src={author.avatar}
                             className="w-6 h-6 rounded-full object-cover"
                         />
@@ -51,30 +56,38 @@ const Projects: React.FC<ProjectsProps> = () => {
             <ul className="space-y-4 mt-6">
                 {projectMeta.projects
                     .filter(
-                        (project) => currentAuthorId === null || project.authorId === currentAuthorId
+                        (project) =>
+                            currentAuthorId === null ||
+                            project.authorId === currentAuthorId
                     )
-                    .sort(
-                        (a, b) =>
+                    .sort((a, b) => {
+                        if (!a.meta.ctime || !b.meta.ctime) {
+                            return 0;
+                        }
+
+                        return (
                             dayjs(b.meta.ctime).unix() -
                             dayjs(a.meta.ctime).unix()
-                    )
+                        );
+                    })
                     .map((project) => {
                         const meta = project.meta;
                         const author = projectMeta.authors.find(
                             (author) => author.id === project.authorId
                         )!;
-                        const isNew = dayjs().diff(
-                            dayjs(meta.ctime),
-                            'day'
-                        ) <= 7;
+                        const isNew = meta.ctime
+                            ? dayjs().diff(dayjs(meta.ctime), 'day') <= 7
+                            : false;
                         return (
                             <li key={project.id}>
-                                <Link to={`/projects/${author.id}/${project.id}`}>
+                                <Link
+                                    to={`/projects/${author.id}/${project.id}`}
+                                >
                                     <Card className="flex overflow-hidden group relative items-center flex-col sm:flex-row">
                                         <div className="relative w-full h-32 sm:h-24 sm:w-24 overflow-hidden bg-gray-200 flex justify-center items-center group-hover:bg-sky-400 transition-colors">
                                             {meta.cover ? (
                                                 <img
-                                                    loading='lazy'
+                                                    loading="lazy"
                                                     alt="cover"
                                                     src={meta.cover}
                                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform"
@@ -86,15 +99,13 @@ const Projects: React.FC<ProjectsProps> = () => {
                                         <div className="sm:ml-4 p-4 sm:p-0 w-full sm:w-auto">
                                             <h2 className="font-bold sm:text-lg flex items-center">
                                                 <span>
-                                                    {meta.name}
+                                                    {meta.name || project.id}
                                                 </span>
-                                                {
-                                                    isNew && (
-                                                        <span className=' text-white bg-green-500 text-xs p-1 rounded-full ml-2'>
-                                                            NEW
-                                                        </span>
-                                                    )
-                                                }
+                                                {isNew && (
+                                                    <span className=" text-white bg-green-500 text-xs p-1 rounded-full ml-2">
+                                                        NEW
+                                                    </span>
+                                                )}
                                             </h2>
                                             <p className="text-xs mt-2 text-gray-400 flex items-center">
                                                 <img
@@ -107,7 +118,6 @@ const Projects: React.FC<ProjectsProps> = () => {
                                                 </span>
                                             </p>
                                         </div>
-                                        
                                     </Card>
                                 </Link>
                             </li>

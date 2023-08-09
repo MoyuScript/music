@@ -1,11 +1,9 @@
+import IProjectMeta from "./IProjectMeta";
+
 interface IProject {
     id: string
     authorId: string
-    meta: {
-        name: string
-        cover: string
-        ctime: string
-    },
+    meta: IProjectMeta,
     readme?: string
     files: string[]
 }
