@@ -25,21 +25,21 @@ export default function vitePluginProjectMeta(): PluginOption {
             if (id === virtualModuleId) {
                 const p = path.posix.join(publicDir, 'projects');
                 const projectFiles = (await globby(p)).map((p) =>
-                    p.replace(`${publicDir}/projects/`, '').toLowerCase()
+                    p.replace(`${publicDir}/projects/`, '')
                 );
 
                 const authors: IAuthor[] = [];
                 const projects: IProject[] = [];
 
                 const metaFiles = projectFiles.filter((path) =>
-                    path.endsWith('meta.json')
+                    path.toLowerCase().endsWith('meta.json')
                 );
 
                 metaFiles.forEach((path) => {
                     const authorId = path.split('/')[0];
                     const id = path.split('/')[1];
 
-                    if (id === 'meta.json') {
+                    if (id.toLowerCase() === 'meta.json') {
                         const data = fs.readFileSync(
                             `${publicDir}/projects/${path}`,
                             'utf8'
@@ -50,7 +50,7 @@ export default function vitePluginProjectMeta(): PluginOption {
 
                     const fileName = path.split('/')[2];
 
-                    if (fileName === 'meta.json') {
+                    if (fileName.toLowerCase() === 'meta.json') {
                         const data = fs.readFileSync(
                             `${publicDir}/projects/${path}`,
                             'utf8'
@@ -60,8 +60,8 @@ export default function vitePluginProjectMeta(): PluginOption {
                             .filter(
                                 (p) =>
                                     p.startsWith(`${authorId}/${id}/`) &&
-                                    !p.endsWith('meta.json') &&
-                                    !p.endsWith('readme.md')
+                                    !p.toLowerCase().endsWith('meta.json') &&
+                                    !p.toLowerCase().endsWith('readme.md')
                             )
                             .map((p) => `${base}projects/${p}`);
                         projects.push({
