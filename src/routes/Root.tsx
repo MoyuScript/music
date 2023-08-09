@@ -1,11 +1,23 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
 export interface RootProps {}
 
 const Root: React.FC<RootProps> = () => {
+    const location = useLocation();
+
+    useEffect(() => {
+        gtag(
+            'event',
+            'page_view',
+            {
+                page_location: window.location.href,
+            }
+        )
+    }, [location.pathname])
+
     return (
         <div className='relative min-h-full'>
             <Header />
