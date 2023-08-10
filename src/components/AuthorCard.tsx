@@ -12,7 +12,7 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author, ...props }) => {
             <a
                 target='_blank'
                 href={author.url}
-                className='flex items-center p-4 sm:p-6 w-auto sm:w-96'>
+                className='flex items-center p-4 sm:p-6 w-full'>
                 <span className='shrink-0'>
                     <img
                         alt='author avatar'
