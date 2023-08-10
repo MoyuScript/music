@@ -9,7 +9,7 @@ body,
 }
 
 html {
-  @apply bg-cover bg-no-repeat bg-center
+  @apply bg-cover bg-no-repeat bg-center bg-gray-200
 }
 
 body {
