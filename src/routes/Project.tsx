@@ -8,7 +8,7 @@ import { useTitle } from 'ahooks';
 import Card from '../components/Card';
 import clsx from 'clsx';
 import Markdown from 'markdown-to-jsx';
-import useHtmlBackgroundImage from '../hooks/useHtmlBackgroundImage';
+import usePageBackgroundImage from '../hooks/usePageBackgroundImage';
 import fileExtColorMap from '../constants/fileExtColorMap';
 import { isMobile } from '../constants/env';
 
@@ -27,7 +27,7 @@ const Project: React.FC<ProjectProps> = () => {
             : `404 - Not Found - ${__APP_NAME__}`
     );
 
-    useHtmlBackgroundImage(project?.meta?.cover);
+    usePageBackgroundImage(project?.meta?.cover);
 
     if (!project) return <NotFound />;
 
@@ -95,7 +95,7 @@ const Project: React.FC<ProjectProps> = () => {
                                             <span className="ml-4 grow">
                                                 {baseName}
                                             </span>
-                                            <span className="h-full flex items-center justify-center px-4 bg-gray-200 group-hover:px-8 group-hover:text-2xl group-hover:text-white group-hover:bg-sky-400 transition-all">
+                                            <span className="h-full flex items-center justify-center px-4 bg-gray-200 dark:bg-gray-700 group-hover:px-8 group-hover:text-2xl group-hover:text-white group-hover:bg-sky-400 transition-all">
                                                 <i className="fa-solid fa-download" />
                                             </span>
                                         </a>

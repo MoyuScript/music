@@ -19,8 +19,8 @@ const CheckItem: React.FC<{
     return (
         <li
             className={clsx(
-                'relative  rounded-xl border-[1px] px-2 py-1 transition-colors cursor-pointer mb-4',
-                checked ? 'bg-sky-500 text-white' : 'bg-white'
+                'relative  rounded-xl border-[1px] px-2 py-1 transition-colors cursor-pointer mb-4 dark:border-gray-700',
+                checked ? 'bg-sky-500 text-white' : 'bg-white dark:bg-gray-800'
             )}
         >
             <Link
