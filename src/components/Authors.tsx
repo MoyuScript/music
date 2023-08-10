@@ -10,7 +10,7 @@ const Authors: React.FC<AuthorsProps> = () => {
             {
                 projectMeta.authors.map((author) => (
                     <li key={author.name} className='relative mb-4 w-full sm:w-auto'>
-                        <AuthorCard author={author} />
+                        <AuthorCard author={author} className='sm:w-[25rem]' />
                     </li>
                 ))
             }
