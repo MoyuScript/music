@@ -115,6 +115,14 @@ const Projects: React.FC<ProjectsProps> = ({ currentAuthorId }) => {
                             }
                         );
 
+                        if (meta.bvid) {
+                            tags.push(
+                                <Tag className='bg-teal-500'>
+                                    <i className='fa-solid fa-video' />
+                                </Tag>
+                            )
+                        }
+
                         return (
                             <li key={project.id}>
                                 <Link
