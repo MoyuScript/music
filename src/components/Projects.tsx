@@ -20,7 +20,7 @@ const CheckItem: React.FC<{
         <li
             className={clsx(
                 'relative  rounded-xl border-[1px] px-2 py-1 transition-colors cursor-pointer mb-4',
-                checked && 'bg-sky-500 text-white'
+                checked ? 'bg-sky-500 text-white' : 'bg-white'
             )}
         >
             <Link
