@@ -6,11 +6,7 @@ export default {
     "./src/**/*.css",
   ],
   theme: {
-    extend: {
-      screens: {
-        min700: "700px"
-      }
-    },
+    extend: {},
   },
   darkMode: 'class',
   plugins: [],
