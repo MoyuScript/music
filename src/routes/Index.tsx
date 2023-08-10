@@ -3,7 +3,7 @@ import { useTitle } from 'ahooks';
 import Section from '../components/Section';
 import Authors from '../components/Authors';
 import Projects from '../components/Projects';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 
 export interface IndexProps {}
 
