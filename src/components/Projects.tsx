@@ -102,7 +102,7 @@ const Projects: React.FC<ProjectsProps> = ({ currentAuthorId }) => {
                 <input
                     type="search"
                     placeholder="搜索项目..."
-                    className="block w-full outline-none border-[1px] rounded-md px-4 py-2"
+                    className="block w-full outline-none border-[1px] rounded-md px-4 py-2 dark:bg-gray-800 dark:border-gray-700"
                     value={keyword}
                     onChange={(e) => setKeyword(e.target.value)}
                 />
