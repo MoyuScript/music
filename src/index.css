@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .text-primary {
+    @apply text-gray-600 dark:text-gray-200;
+  }
+
+  .text-secondary {
+    @apply text-gray-400 dark:text-gray-500;
+  }
+}
+
 html,
 body,
 #root {
@@ -9,7 +19,7 @@ body,
 }
 
 body {
-  @apply bg-cover bg-no-repeat bg-center bg-gray-200 text-gray-600 dark:bg-gray-600 dark:text-gray-200;
+  @apply bg-cover bg-no-repeat bg-center bg-gray-200 dark:bg-gray-600;
 }
 
 #root {

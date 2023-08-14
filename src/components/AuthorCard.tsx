@@ -21,7 +21,7 @@ const AuthorCard: React.FC<AuthorCardProps> = ({ author, ...props }) => {
                 <span className='bg-gray-100 w-[0.05rem] h-20 mx-2 sm:mx-6 dark:bg-gray-600' />
                 <span>
                     <h2 className='sm:text-xl font-bold'>{author.name}</h2>
-                    <p className='italic text-gray-400 mt-2 text-xs sm:text-sm'>
+                    <p className='italic text-secondary mt-2 text-xs sm:text-sm'>
                         {author.bio}
                     </p>
                 </span>

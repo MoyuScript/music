@@ -43,9 +43,20 @@ const CheckItem: React.FC<{
 
 export interface ProjectsProps {
     currentAuthorId: string | null;
+    keyword?: string;
 }
 
-const Projects: React.FC<ProjectsProps> = ({ currentAuthorId }) => {
+const Projects: React.FC<ProjectsProps> = ({ currentAuthorId, keyword }) => {
+    const projects = projectMeta.projects
+    .filter(
+        (project) => {
+            const authorFilter = currentAuthorId === null ||
+            project.authorId === currentAuthorId;
+            const keywordFilter = keyword === undefined ||
+                (project.meta.name || project.id).toLowerCase().includes(keyword.toLowerCase());
+            return authorFilter && keywordFilter;
+        }
+    );
     return (
         <div className="">
             <ul className="flex space-x-2 flex-wrap">
@@ -77,15 +88,7 @@ const Projects: React.FC<ProjectsProps> = ({ currentAuthorId }) => {
                 ))}
             </ul>
             <ul className="space-y-4 mt-6">
-                {projectMeta.projects
-                    .filter(
-                        (project) =>
-                            currentAuthorId === null ||
-                            project.authorId === currentAuthorId
-                    )
-                    .sort(() => {
-                        return Math.random() - 0.5;
-                    })
+                {projects
                     .map((project) => {
                         const meta = project.meta;
                         const author = projectMeta.authors.find(
@@ -153,7 +156,7 @@ const Projects: React.FC<ProjectsProps> = ({ currentAuthorId }) => {
                                                     {tags}
                                                 </span>
                                             </h2>
-                                            <p className="text-xs mt-2 text-gray-400 flex items-center">
+                                            <p className="text-xs mt-2 text-secondary flex items-center">
                                                 <img
                                                     alt="author avatar"
                                                     className="w-6 h-6 rounded-full object-cover inline-block"

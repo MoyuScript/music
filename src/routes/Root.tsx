@@ -20,7 +20,7 @@ const Root: React.FC<RootProps> = () => {
     }, [location.pathname])
 
     return (
-        <div className='relative min-h-full'>
+        <div className='relative min-h-full text-primary'>
             <Header />
             <main className='pt-16 pb-64 max-w-[80rem] mx-auto px-2 sm:px-8'>
                 <Outlet />
