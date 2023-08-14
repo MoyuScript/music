@@ -24,6 +24,7 @@ const CheckItem: React.FC<{
             )}
         >
             <Link
+                replace
                 className="flex items-center"
                 to={author === null ? '/' : `/projects/${author.id}`}
             >
