@@ -51,8 +51,10 @@ export default function vitePluginProjectMeta(): PluginOption {
                     const fileName = path.split('/')[2];
 
                     if (fileName.toLowerCase() === 'meta.json') {
+                        const metaPath = `${publicDir}/projects/${path}`;
+                        const stat = fs.statSync(metaPath);
                         const data = fs.readFileSync(
-                            `${publicDir}/projects/${path}`,
+                            metaPath,
                             'utf8'
                         );
                         const readmePath = `${publicDir}/projects/${authorId}/${id}/readme.md`;
@@ -70,6 +72,7 @@ export default function vitePluginProjectMeta(): PluginOption {
                             readme: fs.existsSync(readmePath) ? fs.readFileSync(readmePath, 'utf8') : '',
                             id,
                             meta: JSON.parse(data),
+                            ctime: Math.round(stat.ctimeMs)
                         });
 
                         return;

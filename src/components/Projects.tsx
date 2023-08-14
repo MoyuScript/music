@@ -56,7 +56,8 @@ const Projects: React.FC<ProjectsProps> = ({ currentAuthorId, keyword }) => {
                 (project.meta.name || project.id).toLowerCase().includes(keyword.toLowerCase());
             return authorFilter && keywordFilter;
         }
-    );
+    )
+    .sort((a, b) => b.ctime - a.ctime);
     return (
         <div className="">
             <ul className="flex space-x-2 flex-wrap">
