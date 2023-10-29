@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import vitePluginProjectMeta from './plugins/vitePluginProjectMeta'
 import legacy from '@vitejs/plugin-legacy'
 
-const base = '/music/';
+const base = '/';
 // https://vitejs.dev/config/
 export default defineConfig({
   base,
