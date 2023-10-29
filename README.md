@@ -1,6 +1,6 @@
 # 摸鱼乐谱 MIDI 网
 
-[摸鱼乐谱 MIDI 网 (moyuscript.github.io)](https://moyuscript.github.io/music/)
+[摸鱼乐谱 MIDI 网 (music.kleespark.com)](https://music.kleespark.com/)
 
 里面存放了各种 MIDI、乐谱等作品。
 
