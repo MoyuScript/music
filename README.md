@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 摸鱼乐谱 MIDI 网
 
-## Getting Started
+一个展示游戏、动漫音乐乐谱和 MIDI 文件的静态网站。
 
-First, run the development server:
+## 特性
+
+- 📚 展示多个创作者的作品集
+- 🎵 支持 MIDI、PDF、MuseScore 等多种格式
+- 📺 集成 Bilibili 视频播放
+- 💜 支持爱发电打赏链接
+- ⚡ 使用 Next.js 静态导出，速度快
+- 🚀 自动部署到 GitHub Pages
+
+## 开发
+
+### 安装依赖
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 本地开发
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+访问 http://localhost:3000
 
-## Learn More
+### 构建静态网站
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+构建输出在 `out/` 目录
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 项目结构
 
-## Deploy on Vercel
+```
+public/projects/
+├── {author}/
+│   ├── readme.md              # 作者信息（YAML front matter）
+│   └── {project}/
+│       ├── readme.md          # 项目信息（YAML front matter）
+│       ├── *.mid              # MIDI 文件
+│       ├── *.pdf              # 乐谱 PDF
+│       └── *.mscz             # MuseScore 文件
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 作者 readme.md 格式
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```markdown
+---
+id: "author_id"
+name: "作者名称"
+avatar: "https://..."
+url: "https://..."
+bio: "个人简介"
+afdianId: "afdian_id"
+---
+```
+
+### 项目 readme.md 格式
+
+```markdown
+---
+name: "项目名称"
+cover: "https://..."        # 可选：封面图片
+bvid: "BV1234567890"        # 可选：B站视频ID
+---
+
+项目介绍内容（Markdown 格式）
+```
+
+## 部署
+
+推送到 GitHub 的 `main` 分支后，GitHub Actions 会自动构建并部署到 GitHub Pages。
+
+确保在 GitHub 仓库设置中：
+1. Settings > Pages > Source 选择 "GitHub Actions"
+2. 启用 GitHub Pages
+
+## 技术栈
+
+- Next.js 16 (Static Export)
+- React 19
+- TypeScript
+- Tailwind CSS
+- gray-matter (YAML front matter 解析)
+- react-markdown (Markdown 渲染)
+
+## License
+
+MIT
