@@ -16,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN" className="h-full">
-      <body className="antialiased flex flex-col min-h-screen items-center h-full bg-gray-50">
+    <html lang="zh-CN">
+      <body className="antialiased flex flex-col min-h-screen items-center bg-gray-50">
         <header className="sticky top-0 z-50 w-full p-4 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             <Link
@@ -28,7 +28,7 @@ export default function RootLayout({
             </Link>
           </div>
         </header>
-        <main className="flex-1 w-full">{children}</main>
+        <main className="flex-1 w-full flex flex-col">{children}</main>
         <footer className="w-full text-sm sm:text-base text-center bg-gray-700 text-gray-100 border-t py-8 px-4">
           <p>
             <span>本站所有内容遵循以下协议：</span>

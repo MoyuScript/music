@@ -32,17 +32,14 @@ const fileExtColorMap: Record<string, string> = {
 export async function generateStaticParams() {
   const paths = getAllProjectPaths();
   return paths.map((path) => ({
-    author: encodeURIComponent(path.author),
-    project: encodeURIComponent(path.project),
+    author: path.author,
+    project: path.project,
   }));
 }
 
 export default async function ProjectPage({ params }: Props) {
   const { author: authorSlug, project: projectSlug } = await params;
-  const project = getProject(
-    decodeURIComponent(authorSlug),
-    decodeURIComponent(projectSlug),
-  );
+  const project = getProject(authorSlug, projectSlug);
   const author = getAuthor(authorSlug);
 
   if (!project || !author) {
@@ -51,14 +48,14 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <div
-      className="z-10 h-full"
+      className="z-10 h-full flex-1 flex flex-col"
       style={{
         background: project.meta.cover
           ? `url(${project.meta.cover}) center/cover no-repeat fixed`
           : undefined,
       }}
     >
-      <div className="bg-white/80 backdrop-blur-sm min-h-full">
+      <div className="bg-white/80 backdrop-blur-sm flex-1">
         <div className="p-8 h-full max-w-7xl mx-auto">
           {/* Project Title */}
           <h1 className="text-center text-3xl font-bold text-gray-900 ">
